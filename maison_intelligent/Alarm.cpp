@@ -82,7 +82,7 @@ void Alarm::_setRGB(int r, int g, int b) {
 
 void Alarm::_turnOff() {
   _setRGB(0, 0, 0);
-  digitalWrite(_buzzerPin, HIGH);
+  digitalWrite(_buzzerPin, LOW);
 }
 
 void Alarm::_offState() {
@@ -103,7 +103,7 @@ void Alarm::_watchState() {
 }
 
 void Alarm::_onState() {
-  digitalWrite(_buzzerPin, LOW);
+  digitalWrite(_buzzerPin, HIGH);
   if (_currentTime - _lastUpdate >= _variationRate) {
     _setRGB(
       _currentColor ? _colA[0] : _colB[0],
